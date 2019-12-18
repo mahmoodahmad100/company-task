@@ -6,6 +6,7 @@ use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest as CustomRequest;
+use App\Http\Resources\UserResource as Resource;
 use App\Models\User as Model;
 
 class UserController extends ApiController
@@ -39,7 +40,7 @@ class UserController extends ApiController
      */
     public function index(Model $user)
     {
-        return $user->all();
+        return Resource::collection($user->all());
     }
 
     /**
@@ -134,7 +135,7 @@ class UserController extends ApiController
      */
     public function show(Model $user)
     {
-        return $user;
+        return new Resource($user);
     }
 
     /**
