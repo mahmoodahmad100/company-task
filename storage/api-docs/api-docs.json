@@ -78,7 +78,7 @@
             }
         },
         "/auth/update": {
-            "patch": {
+            "put": {
                 "tags": [
                     "Auth"
                 ],
@@ -284,37 +284,7 @@
                     }
                 }
             },
-            "delete": {
-                "tags": [
-                    "User"
-                ],
-                "summary": "Remove the specified resource from storage.",
-                "produces": [
-                    "application/json"
-                ],
-                "parameters": [
-                    {
-                        "name": "Authorization",
-                        "in": "header",
-                        "description": "Bearer + token",
-                        "required": true,
-                        "type": "string"
-                    },
-                    {
-                        "name": "id",
-                        "in": "path",
-                        "description": "user id",
-                        "required": true,
-                        "type": "integer"
-                    }
-                ],
-                "responses": {
-                    "204": {
-                        "description": "successful action."
-                    }
-                }
-            },
-            "patch": {
+            "put": {
                 "tags": [
                     "User"
                 ],
@@ -363,6 +333,36 @@
                 ],
                 "responses": {
                     "200": {
+                        "description": "successful action."
+                    }
+                }
+            },
+            "delete": {
+                "tags": [
+                    "User"
+                ],
+                "summary": "Remove the specified resource from storage.",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "Authorization",
+                        "in": "header",
+                        "description": "Bearer + token",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "user id",
+                        "required": true,
+                        "type": "integer"
+                    }
+                ],
+                "responses": {
+                    "204": {
                         "description": "successful action."
                     }
                 }
