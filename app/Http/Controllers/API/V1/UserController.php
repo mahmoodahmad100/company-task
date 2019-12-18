@@ -96,7 +96,7 @@ class UserController extends ApiController
           $user = $user->create([
                'name'     => $request->name,
                'email'    => $request->email,
-               'password' => bcrypt($request->password),
+               'password' => $request->password,
           ]);
 
           $token = Auth::fromUser($user);
@@ -145,7 +145,7 @@ class UserController extends ApiController
      * @param  object  $user
      * @return \Illuminate\Http\Response
      *
-     * @SWG\Patch(
+     * @SWG\Put(
      *     path="/users/{id}",
      *     produces={"application/json"},
      *     tags={"User"},
@@ -198,7 +198,7 @@ class UserController extends ApiController
           $user->update([
                'name'     => $request->name,
                'email'    => $request->email,
-               'password' => bcrypt($request->password),
+               'password' => $request->password,
           ]);
 
           return response()->json('successful action.',200);

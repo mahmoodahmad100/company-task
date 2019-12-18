@@ -6,6 +6,7 @@ use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest as CustomRequest;
+use App\Http\Resources\UserResource as Resource;
 use Exception;
 
 class AuthController extends ApiController
@@ -56,10 +57,10 @@ class AuthController extends ApiController
      */
     public function login(Request $request)
     {
-	   if( ! $token = auth()->attempt(['email' => $request->email, 'password' => $request->password]) ) {
-	       return response()->json(['error' => 'please login with the correct data'], 401);
-	   }
-	   return response()->json(['data' => compact('token')]);
+    	   if( ! $token = auth()->attempt(['email' => $request->email, 'password' => $request->password]) ) {
+    	       return response()->json(['error' => 'please login with the correct data'], 401);
+    	   }
+    	   return response()->json(['data' => compact('token')]);
     }
 
     /**
@@ -86,7 +87,7 @@ class AuthController extends ApiController
      */
     public function me()
     {
-        return response()->json(auth()->user());
+        return new Resource(auth()->user());
     }
 
     /**
@@ -95,7 +96,7 @@ class AuthController extends ApiController
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      *
-     * @SWG\Patch(
+     * @SWG\Put(
      *     path="/auth/update",
      *     produces={"application/json"},
      *     tags={"Auth"},
@@ -141,7 +142,7 @@ class AuthController extends ApiController
         auth()->update([
             'name'     => $request->name,
             'email'    => $request->email,
-            'password' => bcrypt($request->password)
+            'password' => $request->password
         ]);
 
         return response()->json('successful action.',200);
@@ -202,5 +203,4 @@ class AuthController extends ApiController
         $token = auth()->refresh();
         return response()->json(['data' => compact('token')]);
     }
-
 }
