@@ -30,5 +30,16 @@ Route::group(['prefix' => 'v1'],function(){
 
   /* User */
   Route::apiResource('users','API\V1\UserController');
-  
+
+  /* Company */
+  // Route::apiResource('companies','API\V1\CompanyController');
+
+  /* Department */
+  Route::apiResource('departments','API\V1\DepartmentController');
+
+  /* Manager */
+  Route::apiResource('managers','API\V1\ManagerController');
+
+  /* Employee */
+  Route::apiResource('employees','API\V1\EmployeeController');
 });
