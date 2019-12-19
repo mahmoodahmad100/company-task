@@ -24,4 +24,15 @@ class Employee extends Model
     {
         return $this->belongsTo(Department::class, 'department_id');
     }
+
+    /**
+     * get the description.
+     *
+     * @param string $value
+     * @return string
+     */
+    public function getDescriptionAttribute($value)
+    {
+        return 'profile';
+    }
 }

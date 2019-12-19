@@ -23,5 +23,16 @@ class Manager extends Model
     public function department()
     {
         return $this->belongsTo(Department::class, 'department_id');
-    }    
+    }
+
+    /**
+     * get the description.
+     *
+     * @param string $value
+     * @return string
+     */
+    public function getDescriptionAttribute($value)
+    {
+        return 'profile';
+    }
 }
