@@ -15,7 +15,7 @@ class EmployeeController extends ApiController
      * @return \Illuminate\Http\Response
      *
      * @SWG\Get(
-     *     path="/users",
+     *     path="/employees",
      *     produces={"application/json"},
      *     tags={"Employee"},
      *     @SWG\Parameter(
@@ -47,7 +47,7 @@ class EmployeeController extends ApiController
      * @return \Illuminate\Http\Response
      *
      * @SWG\Get(
-     *     path="/users/{id}",
+     *     path="/employees/{id}",
      *     produces={"application/json"},
      *     tags={"Employee"},
      *     @SWG\Parameter(
@@ -59,7 +59,7 @@ class EmployeeController extends ApiController
      *     ),
      *     @SWG\Parameter(
      *         name="id",
-     *         description="user id",
+     *         description="employee id",
      *         required=true,
      *         type="integer",
      *         in="path"

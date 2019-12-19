@@ -15,7 +15,7 @@ class ManagerController extends ApiController
      * @return \Illuminate\Http\Response
      *
      * @SWG\Get(
-     *     path="/users",
+     *     path="/managers",
      *     produces={"application/json"},
      *     tags={"Manager"},
      *     @SWG\Parameter(
@@ -47,7 +47,7 @@ class ManagerController extends ApiController
      * @return \Illuminate\Http\Response
      *
      * @SWG\Get(
-     *     path="/users/{id}",
+     *     path="/managers/{id}",
      *     produces={"application/json"},
      *     tags={"Manager"},
      *     @SWG\Parameter(
@@ -59,7 +59,7 @@ class ManagerController extends ApiController
      *     ),
      *     @SWG\Parameter(
      *         name="id",
-     *         description="user id",
+     *         description="manager id",
      *         required=true,
      *         type="integer",
      *         in="path"

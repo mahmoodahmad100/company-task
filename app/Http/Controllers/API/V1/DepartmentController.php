@@ -15,7 +15,7 @@ class DepartmentController extends ApiController
      * @return \Illuminate\Http\Response
      *
      * @SWG\Get(
-     *     path="/users",
+     *     path="/departments",
      *     produces={"application/json"},
      *     tags={"Department"},
      *     @SWG\Parameter(
@@ -47,7 +47,7 @@ class DepartmentController extends ApiController
      * @return \Illuminate\Http\Response
      *
      * @SWG\Get(
-     *     path="/users/{id}",
+     *     path="/departments/{id}",
      *     produces={"application/json"},
      *     tags={"Department"},
      *     @SWG\Parameter(
@@ -59,7 +59,7 @@ class DepartmentController extends ApiController
      *     ),
      *     @SWG\Parameter(
      *         name="id",
-     *         description="user id",
+     *         description="department id",
      *         required=true,
      *         type="integer",
      *         in="path"
