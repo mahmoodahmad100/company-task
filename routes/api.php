@@ -43,3 +43,13 @@ Route::group(['prefix' => 'v1'],function(){
   /* Employee */
   Route::apiResource('employees','API\V1\EmployeeController');
 });
+
+
+
+/* API ===> V2 */
+Route::group(['prefix' => 'v2'],function(){
+
+  /* Department */
+  Route::get('departments','API\V2\DepartmentController@index');
+
+});
